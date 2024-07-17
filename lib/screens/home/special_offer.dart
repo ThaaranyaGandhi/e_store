@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fresh_store_ui/constants/colors_const.dart';
 import 'package:fresh_store_ui/screens/mostpopular/most_popular_screen.dart';
 
 import '../../constants/urls_const.dart';
@@ -93,7 +94,7 @@ class _SpecialOffersState extends State<SpecialOffers> {
                         height: 100,
                         width: 100,
                         decoration: BoxDecoration(
-                          color: Colors.red.shade100,
+                          color: ColorsConst.secondColor,
                           /*const Color(0x10101014),*/
                           borderRadius: BorderRadius.circular(20),
                         ),

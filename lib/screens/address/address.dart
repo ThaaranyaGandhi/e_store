@@ -100,7 +100,8 @@ class _AddressScreenState extends State<AddressScreen> {
               width: 200,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(29)),
-                color: const Color(0xFF101010),
+                color:  ColorsConst.firstColor,
+                border: Border.all(color: Colors.black, width: 1),
                 boxShadow: [
                   BoxShadow(
                     offset: const Offset(4, 8),
@@ -126,14 +127,14 @@ class _AddressScreenState extends State<AddressScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/icons/profile/location@2x.png', scale: 2, color: ColorsConst.white,),
-                      const SizedBox(width: 16),
+                      Image.asset('assets/icons/profile/location@2x.png', scale: 2, color: ColorsConst.black,),
+                      const SizedBox(width: 10),
                       const Text(
                         'Add another address',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.white,
+                          fontSize: 18,
+                          color: Colors.black,
                         ),
                       ),
                     ],

@@ -4,10 +4,14 @@ class ColorsConst {
 
   ColorsConst._();
 
+  static const Color firstColor = Colors.green;
+  static  Color secondColor = Colors.green.shade50;
+
   static const primary = Color(0xFF5861AF);
   static const primaryshade = Color.fromARGB(255, 153, 153, 207);
   static const primaryLight = Color(0x225861AF);
   static const secondary = Color(0xFFE35335);
+  static const red = Color(0xFFE35335);
 
   static const text = Color(0xFF062132);
   static const text1 = Color(0xFF516470);

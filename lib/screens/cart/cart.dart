@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_store_ui/constants/colors_const.dart';
 import 'package:fresh_store_ui/db/local_db.dart';
 import 'package:fresh_store_ui/global.dart';
 import 'package:fresh_store_ui/screens/auth/login/login.dart';
@@ -110,7 +111,7 @@ class _CartScreenState extends State<CartScreen> {
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black87, width: 1),
                     borderRadius: const BorderRadius.all(Radius.circular(29)),
-                    color: Colors.red /*const Color(0xFF101010)*/,
+                    color: ColorsConst.firstColor /*const Color(0xFF101010)*/,
                     boxShadow: [
                       BoxShadow(
                         offset: const Offset(4, 8),

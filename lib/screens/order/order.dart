@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fresh_store_ui/constants/colors_const.dart';
 import 'package:fresh_store_ui/network/models/order_product.dart';
 import 'package:fresh_store_ui/screens/order/bloc/order_bloc.dart';
 import 'package:fresh_store_ui/screens/order/header.dart';
@@ -149,7 +150,8 @@ class OrderScreenState extends State<OrderScreen> {
                   width: 200,
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(29)),
-                    color: const Color(0xFF101010),
+                    color:  ColorsConst.firstColor,
+                    border: Border.all(color: Colors.black,width: 1),
                     boxShadow: [
                       BoxShadow(
                         offset: const Offset(4, 8),
@@ -186,15 +188,15 @@ class OrderScreenState extends State<OrderScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset('assets/icons/detail/bag@2x.png',
-                              scale: 2),
-                          const SizedBox(width: 16),
+                          Image.asset('assets/icons/detail/bag@2x.png',color: Colors.black,
+                              scale: 1.5),
+                          const SizedBox(width: 10),
                           const Text(
                             'Checkout',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.white,
+                              fontSize: 18,
+                              color: Colors.black,
                             ),
                           ),
                         ],

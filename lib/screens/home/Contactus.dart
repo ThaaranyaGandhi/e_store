@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fresh_store_ui/constants/colors_const.dart';
 
 import '../../resources/toast.dart';
 import 'package:http/http.dart' as http;
@@ -21,83 +22,110 @@ class _contactusScreenState extends State<contactusScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Contact Us',style: TextStyle(color: Colors.black),),centerTitle: true
+        title: const Text('Contact Us',style: TextStyle(color: Colors.black),)
         ,
       ),
-      body:Container(
-        child:  Padding(
-            padding: const EdgeInsets.only(left: 10,right: 10,top: 40),
-          child: Column(
-            children: [
-               TextField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Name',
+      body:Padding(
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+        child: Column(
+          children: [
+             TextField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
                 ),
-                controller: nameController,
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                  borderSide: BorderSide(color: Colors.grey),),
+                hintText: 'Name',
               ),
-              const SizedBox(height: 20,),
-               TextField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Phone Number',
+              controller: nameController,
+            ),
+            const SizedBox(height: 20,),
+             TextField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
                 ),
-                controller: mobilenoController,
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                  borderSide: BorderSide(color: Colors.grey),),
+                hintText: 'Phone Number',
               ),
-              const SizedBox(height: 20,),
-               TextField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Order Details',
+              controller: mobilenoController,
+            ),
+            const SizedBox(height: 20,),
+             TextField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
                 ),
-                controller: orderdetailController,
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                  borderSide: BorderSide(color: Colors.grey),),
+                hintText: 'Order Details',
               ),
-              const SizedBox(height: 20,),
-              Container(
-                height: 50,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(19)),
-                  color:  Colors.black,
-                ),
-                child: InkWell(
-                  borderRadius: const BorderRadius.all(Radius.circular(29)),
-                  // splashColor: const Color(0xFFEEEEEE),
-                  onTap: () {
-                    if(nameController.text == "")
-                      {
-                        toast('Please Enter Your Name', success: false);
-                      }
-                    else if(mobilenoController.text == "")
-                      {
-                        toast('Please Enter Your Phone Number', success: false);
-                      }
-                    else if(orderdetailController.text == "")
-                    {
-                      toast('Please Enter Your Order Details', success: false);
-                    }
-                    else
-                      {
-                        callService();
-                      }
+              controller: orderdetailController,
+            ),
+            const SizedBox(height: 30),
+            Container(
+              height: 50,
 
-                  },
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Submit',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.white,
-                        ),
+              decoration:  BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                color:  ColorsConst.firstColor,
+                border: Border.all(color: Colors.black, width: 1)
+              ),
+              child: InkWell(
+                borderRadius: const BorderRadius.all(Radius.circular(29)),
+                // splashColor: const Color(0xFFEEEEEE),
+                onTap: () {
+                  if(nameController.text == "")
+                    {
+                      toast('Please Enter Your Name', success: false);
+                    }
+                  else if(mobilenoController.text == "")
+                    {
+                      toast('Please Enter Your Phone Number', success: false);
+                    }
+                  else if(orderdetailController.text == "")
+                  {
+                    toast('Please Enter Your Order Details', success: false);
+                  }
+                  else
+                    {
+                      callService();
+                    }
+
+                },
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Submit',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colors.black,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

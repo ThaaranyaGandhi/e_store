@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_store_ui/constants/colors_const.dart';
 
 import '../network/models/product.dart';
 import '../utils/calculations.dart';
@@ -27,7 +28,7 @@ class ProductCard extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             decoration:  BoxDecoration(
               borderRadius: borderRadius,
-              color: Colors.red.shade50,
+              color: ColorsConst.secondColor,
             //  color: Color(0xFFeeeeee),
             ),
             child: Image.network(
@@ -86,7 +87,7 @@ class ProductCard extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(6)),
-            color:Colors.red.shade50 /*const Color(0xFF101010).withOpacity(0.08)*/,
+            color:ColorsConst.secondColor/*const Color(0xFF101010).withOpacity(0.08)*/,
           ),
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
           child: Text(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fresh_store_ui/components/product_card.dart';
+import 'package:fresh_store_ui/constants/colors_const.dart';
 import 'package:fresh_store_ui/screens/detail/detail_screen.dart';
 import 'package:fresh_store_ui/screens/home/bloc/home_bloc.dart';
 import 'package:fresh_store_ui/screens/home/hearder.dart';
@@ -94,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(10)),
             border: Border.all(color: const Color(0xFF101010), width: 1),
-            color: Colors.red /*const Color(0xFFFFFFFF)*/,
+            color: ColorsConst.firstColor /*const Color(0xFFFFFFFF)*/,
           ),
           alignment: Alignment.center,
           child: InkWell(

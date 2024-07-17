@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_store_ui/constants/colors_const.dart';
 import 'package:fresh_store_ui/global.dart';
 
 class MostPupularCategory extends StatefulWidget {
@@ -44,7 +45,7 @@ class MostPupularCategoryState extends State<MostPupularCategory> {
       decoration: BoxDecoration(
         borderRadius: radius,
         border: Border.all(color: const Color(0xFF101010), width: 1),
-        color: isActive ?/* const Color(0xFF101010)*/ Colors.red: const Color(0xFFFFFFFF),
+        color: isActive ?/* const Color(0xFF101010)*/ ColorsConst.firstColor: const Color(0xFFFFFFFF),
       ),
       alignment: Alignment.center,
       child: InkWell(

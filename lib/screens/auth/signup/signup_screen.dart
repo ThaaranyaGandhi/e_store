@@ -53,8 +53,8 @@ class _SignupScreenState extends State<SignupScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text("Let's get started !",
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.red),),
+                   const Text("Let's get started !",
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color:  ColorsConst.firstColor),),
                   const SizedBox(
                     height: 4,
                   ),
@@ -111,7 +111,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         },
                         child: const Text('Login',
                             style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.red)),
+                                fontSize: 16, fontWeight: FontWeight.bold, color:  ColorsConst.firstColor)),
                       ),
                     ],
                   )
@@ -131,7 +131,7 @@ class _SignupScreenState extends State<SignupScreen> {
         Container(
           decoration:  BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(16)),
-            color: Colors.red.shade50 /*Color(0xFFF3F3F3)*/,
+            color:  ColorsConst.secondColor /*Color(0xFFF3F3F3)*/,
           ),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           child: Material(
@@ -185,7 +185,7 @@ class _SignupScreenState extends State<SignupScreen> {
         height: 58,
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(29)),
-          color: Colors.red /*const Color(0xFF101010)*/,
+          color:  ColorsConst.firstColor/*const Color(0xFF101010)*/,
           border: Border.all(color: Colors.black87, width: 1),
           boxShadow: [
             BoxShadow(

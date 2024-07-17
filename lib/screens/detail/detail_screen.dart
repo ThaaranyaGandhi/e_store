@@ -1,5 +1,6 @@
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:fresh_store_ui/constants/colors_const.dart';
 import 'package:fresh_store_ui/network/models/product.dart';
 import 'package:fresh_store_ui/screens/cart/cart.dart';
 import 'package:fresh_store_ui/size_config.dart';
@@ -72,7 +73,7 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
                                 InvoiceDialog(context, _index);
                               },
                               child: Card(
-                                color: Colors.red.shade50,
+                                color: ColorsConst.secondColor,
                                 elevation: 3,
                                 child: Center(
                                   child: Image.network(
@@ -243,7 +244,7 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
           Container(
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(6)),
-              color: Colors.red.shade50 /*const Color(0xFF101010).withOpacity(0.08)*/,
+              color: ColorsConst.secondColor /*const Color(0xFF101010).withOpacity(0.08)*/,
             ),
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
             child: Text(
@@ -326,7 +327,7 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
         Container(
           decoration:  BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(24)),
-            color: Colors.red.shade50 /*Color(0xFFF3F3F3)*/,
+            color: ColorsConst.secondColor /*Color(0xFFF3F3F3)*/,
           ),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
           child: Material(
@@ -365,7 +366,7 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
         Container(
           decoration:  BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(24)),
-            color: Colors.red.shade50 /*Color(0xFFF3F3F3)*/,
+            color: ColorsConst.secondColor /*Color(0xFFF3F3F3)*/,
           ),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
           child: Material(
@@ -411,7 +412,7 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
           width: getProportionateScreenWidth(208),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(29)),
-            color: Colors.red /*const Color(0xFF101010)*/,
+            color: ColorsConst.firstColor /*const Color(0xFF101010)*/,
             border: Border.all(color: Colors.black87, width: 1),
             boxShadow: [
               BoxShadow(

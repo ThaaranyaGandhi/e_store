@@ -1,5 +1,6 @@
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:fresh_store_ui/constants/colors_const.dart';
 
 import '../../global.dart';
 import '../../network/models/cart.dart';
@@ -44,7 +45,7 @@ class _CartItemState extends State<CartItem> {
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: borderRadius,
-        color: Colors.red.shade50 /*Color(0xFFeeeeee)*/,
+        color:  ColorsConst.secondColor /*Color(0xFFeeeeee)*/,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,

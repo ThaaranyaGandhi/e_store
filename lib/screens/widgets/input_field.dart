@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:fresh_store_ui/constants/colors_const.dart';
 
 class InputField extends StatelessWidget {
   final IconData? icon;
@@ -20,7 +21,7 @@ class InputField extends StatelessWidget {
     return Container(
       height: 56,
       decoration:  BoxDecoration(
-        color: Colors.red.shade50,
+        color: ColorsConst.secondColor,
        // color: Color(0xFFf3f3f3),
         borderRadius: const BorderRadius.all(
           Radius.circular(16),

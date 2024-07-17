@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 20,
                     ),
                     const Text('Welcome back !',
-                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color: Colors.red,),),
+                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color:  ColorsConst.firstColor,),),
                     const SizedBox(
                       height: 4,
                     ),
@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           child: const Text('Sign Up',
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold, color: Colors.red),),
+                                  fontSize: 16, fontWeight: FontWeight.bold, color:  ColorsConst.firstColor),),
                         ),
                       ],
                     )
@@ -120,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
         height: 58,
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(29)),
-          color: Colors.red/*const Color(0xFF101010)*/,
+          color:  ColorsConst.firstColor/*const Color(0xFF101010)*/,
           border: Border.all(color: Colors.black87, width: 1),
           boxShadow: [
             BoxShadow(

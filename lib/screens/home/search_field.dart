@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:fresh_store_ui/constants/colors_const.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField({super.key});
@@ -10,7 +11,7 @@ class SearchField extends StatelessWidget {
     return Container(
       height: 56,
       decoration: BoxDecoration(
-        color: Colors.red.shade50,
+        color: ColorsConst.secondColor,
         //    color: Color(0xFFf3f3f3),
         borderRadius: const BorderRadius.all(
           Radius.circular(16),
