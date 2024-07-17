@@ -10,8 +10,11 @@ import 'package:fresh_store_ui/screens/address/bloc/address_bloc.dart';
 import '../../db/local_db.dart';
 import '../../global.dart';
 import '../../network/services/address_service.dart';
+
+import 'package:fresh_store_ui/constants/colors_const.dart';
 import '../widgets/input_field.dart';
 import 'package:http/http.dart' as http;
+
 class AddAddressScreen extends StatefulWidget {
   final Address? address;
   const AddAddressScreen({super.key, this.address});
@@ -36,10 +39,9 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
   var service = AddressService();
   @override
   void didChangeDependencies() {
-
     Address? address = ModalRoute.of(context)?.settings.arguments as Address?;
 
-    if(address!=null){
+    if (address != null) {
       aid = address.aid;
       nameController.text = address.name;
       typeController.text = address.type;
@@ -58,9 +60,9 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
     const padding = EdgeInsets.fromLTRB(24, 24, 24, 0);
     return BlocListener<AddressBloc, AddressState>(
       listener: (context, state) {
-        if(state is AddressCreated){
+        if (state is AddressCreated) {
           toast('Address added successfully', success: true);
-          Future.delayed(const Duration(milliseconds: 500),(){
+          Future.delayed(const Duration(milliseconds: 500), () {
             Navigator.pop(context);
           });
         }
@@ -165,7 +167,8 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
         height: 58,
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(29)),
-          color: const Color(0xFF101010),
+          color: ColorsConst.firstColor,
+          border: Border.all(color: Colors.black, width: 1),
           boxShadow: [
             BoxShadow(
               offset: const Offset(4, 8),
@@ -184,7 +187,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                 return;
               }
 
-              if(aid!=null){
+              if (aid != null) {
                 // context.read<AddressBloc>().add(UpdateAddress(
                 //   address: Address(
                 //     aid: aid,
@@ -196,7 +199,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                 //     type: typeController.text,
                 //     name: nameController.text)));
                 callupdateService();
-              }else{
+              } else {
                 // context.read<AddressBloc>().add(AddAddress(
                 //   hno: noController.text,
                 //   society: societyController.text,
@@ -208,7 +211,6 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                 print('add');
                 calladdService();
               }
-
             },
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -218,7 +220,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
               ],
@@ -227,16 +229,27 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
         ),
       );
 
-
-  void callupdateService()async{
+  void callupdateService() async {
     showLoaderDialog(context);
-   UpdatePost newPost = new UpdatePost(uid: LocalDB.getUserid(), aid: aid, no: noController.text, society: societyController.text, pincode: pincodeController.text, area: areaController.text, landmark: landmarkController.text, type: typeController.text, name: nameController.text);
-    UpdatePost postRequest = await UpdatePost1('https://skimportexport.live/skimportexport/admin_panel/api/new_address.php',
+    UpdatePost newPost = new UpdatePost(
+        uid: LocalDB.getUserid(),
+        aid: aid,
+        no: noController.text,
+        society: societyController.text,
+        pincode: pincodeController.text,
+        area: areaController.text,
+        landmark: landmarkController.text,
+        type: typeController.text,
+        name: nameController.text);
+    UpdatePost postRequest = await UpdatePost1(
+        'https://skimportexport.live/skimportexport/admin_panel/api/new_address.php',
         body: newPost.toMap());
   }
 
   Future<UpdatePost> UpdatePost1(String url, {required Map body}) async {
-    return http.post(Uri.parse(url), body: body).then((http.Response response) async {
+    return http
+        .post(Uri.parse(url), body: body)
+        .then((http.Response response) async {
       final int statusCode = response.statusCode;
       if (statusCode < 200 || statusCode > 400 || json == null) {
         print(response.statusCode);
@@ -245,29 +258,36 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
       Navigator.pop(context);
       print(response.statusCode);
       var jsonList = jsonDecode(response.body);
-      if(jsonList["ResponseCode"] == "200")
-      {
+      if (jsonList["ResponseCode"] == "200") {
         toast('Address updated successfully', success: true);
         Navigator.pop(context);
-      }
-      else
-      {
+      } else {
         toast('Address Failed to update', success: false);
       }
       return UpdatePost.fromJson(json.decode(response.body));
     });
   }
 
-
-  void calladdService()async{
+  void calladdService() async {
     showLoaderDialog(context);
-    addaddress newPost = new addaddress(uid:LocalDB.getUserid(),hno: noController.text, society: societyController.text, pincode: pincodeController.text, area: areaController.text, landmark: landmarkController.text, type: typeController.text, name: nameController.text);
-    addaddress postRequest = await createPost1('https://skimportexport.live/skimportexport/admin_panel/api/new_address.php',
+    addaddress newPost = new addaddress(
+        uid: LocalDB.getUserid(),
+        hno: noController.text,
+        society: societyController.text,
+        pincode: pincodeController.text,
+        area: areaController.text,
+        landmark: landmarkController.text,
+        type: typeController.text,
+        name: nameController.text);
+    addaddress postRequest = await createPost1(
+        'https://skimportexport.live/skimportexport/admin_panel/api/new_address.php',
         body: newPost.toMap());
   }
 
   Future<addaddress> createPost1(String url, {required Map body}) async {
-    return http.post(Uri.parse(url), body: body).then((http.Response response) async {
+    return http
+        .post(Uri.parse(url), body: body)
+        .then((http.Response response) async {
       final int statusCode = response.statusCode;
       if (statusCode < 200 || statusCode > 400 || json == null) {
         print(response.statusCode);
@@ -276,40 +296,43 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
       Navigator.pop(context);
       print(response.statusCode);
       var jsonList = jsonDecode(response.body);
-      if(jsonList["ResponseCode"] == "200")
-      {
+      if (jsonList["ResponseCode"] == "200") {
         toast('Address added successfully', success: true);
-        Future.delayed(const Duration(milliseconds: 500),(){
+        Future.delayed(const Duration(milliseconds: 500), () {
           Navigator.pop(context);
         });
-      }
-      else
-      {
+      } else {
         toast('Address added Failed', success: false);
       }
       print("Response:${response.body}");
       return addaddress.fromJson(json.decode(response.body));
     });
   }
-  showLoaderDialog(BuildContext context){
-    AlertDialog alert=const AlertDialog(
+
+  showLoaderDialog(BuildContext context) {
+    AlertDialog alert = const AlertDialog(
       backgroundColor: Colors.transparent,
       content: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          CircularProgressIndicator(color: Colors.white,),
-        ],),
+          CircularProgressIndicator(
+            color: Colors.white,
+          ),
+        ],
+      ),
     );
-    showDialog(barrierDismissible: false,
-      context:context,
+    showDialog(
+      barrierDismissible: false,
+      context: context,
       useRootNavigator: false,
-      builder:(BuildContext context){
+      builder: (BuildContext context) {
         return alert;
       },
     );
   }
 }
+
 class UpdatePost {
   final String uid;
   final String aid;
@@ -321,7 +344,16 @@ class UpdatePost {
   final String type;
   final String name;
 
-  UpdatePost({required this.uid,required this.aid,required this.no,required this.society,required this.pincode,required this.area,required this.landmark,required this.type,required this.name});
+  UpdatePost(
+      {required this.uid,
+      required this.aid,
+      required this.no,
+      required this.society,
+      required this.pincode,
+      required this.area,
+      required this.landmark,
+      required this.type,
+      required this.name});
 
   factory UpdatePost.fromJson(Map<String, dynamic> json) {
     return UpdatePost(
@@ -349,7 +381,8 @@ class UpdatePost {
     map["type"] = type;
     map["name"] = name;
 
-    print("Parameter:::${'https://skimportexport.live/skimportexport/admin_panel/api/address.php'}${map.toString()}");
+    print(
+        "Parameter:::${'https://skimportexport.live/skimportexport/admin_panel/api/address.php'}${map.toString()}");
     return map;
   }
 }
@@ -364,7 +397,15 @@ class addaddress {
   final String type;
   final String name;
 
-  addaddress({required this.uid,required this.hno,required this.society,required this.pincode,required this.area,required this.landmark,required this.type,required this.name});
+  addaddress(
+      {required this.uid,
+      required this.hno,
+      required this.society,
+      required this.pincode,
+      required this.area,
+      required this.landmark,
+      required this.type,
+      required this.name});
 
   factory addaddress.fromJson(Map<String, dynamic> json) {
     return addaddress(
@@ -390,7 +431,8 @@ class addaddress {
     map["type"] = type;
     map["name"] = name;
 
-    print("Parameter:::${'https://skimportexport.live/skimportexport/admin_panel/api/new_address.php'}${map.toString()}");
+    print(
+        "Parameter:::${'https://skimportexport.live/skimportexport/admin_panel/api/new_address.php'}${map.toString()}");
     return map;
   }
 }
