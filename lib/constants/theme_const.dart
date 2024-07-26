@@ -1,6 +1,0 @@
-class ThemeConst {
-
-  ThemeConst._();
-
-
-}
